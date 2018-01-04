@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>CSS3 Desde Cero - Clase 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>CSS3 Desde cero - clase1 (Introducción)</h1>
+    <p>Temas:</p>
+    <ul class="main-menu">
+        <li class="main-menu__link"><a class="main-menu__item" href="#vinculo">1.Como vincular HTML con CSS</a></li>
+        <li class="main-menu__link"><a class="main-menu__item" href="#sintaxis">2.Sintaxis de CSS</a></li>
+        <li class="main-menu__link"><a class="main-menu__item" href="#selectores">3.Selectores</a></li>
+        <li class="main-menu__link"><a class="main-menu__item" href="#herencia">4.Herencia</a></li>
+        <li class="main-menu__link"><a class="main-menu__item" href="#cascada">5.Cascada</a></li>
+        <li class="main-menu__link"><a class="main-menu__item" href="#navegador">6.Estilos de navegador</a></li>
+    </ul>
+    <h2 id="vinculo">1. Como vincular HTML con CSS</h2>
+    <p class="metodo">Existen 4 métodos:</p>
+    <ul class="main-menu">
+        <li class="main-menu__link main-menu__link--metodos"><a href="#link" class="main-menu__item main-menu__item--metodos">&ltlink&gt</a></li>
+        <li class="main-menu__link main-menu__link--metodos"><a href="#style" class="main-menu__item main-menu__item--metodos">&ltstyle&gt</a></li>
+        <li class="main-menu__link main-menu__link--metodos"><a href="#import" class="main-menu__item main-menu__item--metodos">@import</a></li>
+        <li class="main-menu__link main-menu__link--metodos"><a href="#style2" class="main-menu__item main-menu__item--metodos">style=""</a></li>
+    </ul>
+
+    <h3 id="link">&ltlink&gt</h3>
+    <p>La etiqueta <em>link</em> conecta al HTML con un recurso externo.</p>
+    <p>La sintaxis para conectar CSS es (recomendable en el HEAD)</p>
+<pre>
+    <code>
+&ltlink rel="stylesheet" href="ruta/archivo.css"&gt
+    </code>
+</pre>
+    <p>En HTML5 no es neesario <em>type="text/css"</em></p>
+
+    <h3 id="style">&ltstyle&gt</h3>
+    <p>La etiqueta <em>&ltstyle&gt &ltstyle&gt</em> permite embeber código css dentro de html</p>
+    <pre>
+        <code>
+&ltstyle&gt
+    body {
+        background: red;
+    }
+&lt/style&gt
+        </code>
+    </pre>
+
+    <h3 id="import">@import</h3>
+    <p>La regla <em>@import</em> añade una hoja de estilos externa dentro de otra.</p>
+    <p>Por lo tanto, si se usa en HTML, debe estar dentro de las etiquetas <em>&ltstyle&gt &lt/style&gt</em> </p>
+    <pre>
+        <code>
+@import url(ruta/archivo.css)
+        </code>
+    </pre>
+
+    <h3 id="style2">style=""</h3>
+    <p>El atributo <em>&ltstyle&gt &lt/style&gt</em> permite insertar estilos en un elemento especifico de HTML</p>
+    <pre>
+        <code>
+&lth1 style="color: red"&gtCSS3 Desde Cero&lt/h1&gt
+        </code>
+    </pre>
+
+    <h2 id="sintaxis">2. Sintaxis de CSS</h2>
+
+    <ul class="main-menu">
+        <li class="main-menu__link main-menu__link--sintaxis"><a class="main-menu__item main-menu__item--sintaxis" href="#regla">regla (rule)</a></li>
+        <li class="main-menu__link main-menu__link--sintaxis"><a class="main-menu__item main-menu__item--sintaxis" href="#selector">selector</a></li>
+        <li class="main-menu__link main-menu__link--sintaxis"><a class="main-menu__item main-menu__item--sintaxis" href="#declaracion">declaración</a></li>
+        <li class="main-menu__link main-menu__link--sintaxis"><a class="main-menu__item main-menu__item--sintaxis" href="">propiedad</a></li>
+        <li class="main-menu__link main-menu__link--sintaxis"><a class="main-menu__item main-menu__item--sintaxis" href="">valor</a></li>
+    </ul>
+
+    <h3 id="regla">regla (rule)</h3>
+    <p>es un bloque de instrucciones css. omienza con un selector y termina on una llave de cierre.</p>
+    <pre>
+        <code>
+selector {
+    codigo css
+}
+@media {
+
+}
+@font-face {
+
+}
+@keyframes {
+
+}
+        </code>
+    </pre>
+
+    <h3 id="selector">selector</h3>
+    <p>Indican a que elemento HTML se va aplicar el estilo</p>
+<pre>
+    <code>
+p {
+    parrafo
+}
+    </code>
+</pre>
+
+    <h3 id="declaracion">delaración (y bloque de declaración)</h3>
+    <p>Una declaración es un estilo especifico. Y se conforma por una        propiedad (que es el estilo  a manipular ) y un valor  que tomará dicho estilo</p>
+    <pre>
+        <code>
+p {
+    color: red;
+}
+        </code>
+    </pre>
+
+    <p>* Nota1: El conjunto de todas las declaraciones encerradas entre llaves, se conoce como "bloque de declaraciones" (declaration block) </p>
+    <p>* Nota2: Tradicionalmente una propiedad tomaba un valor. Sin embargo en css3 existen varias propiedades que pueden tomar multiples valores</p>
+
+    <h2 id="selectores">3. Selectores</h2>
+
+    <ul class="main-menu">
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-etiqueta">Selectores de etiqueta</a> </li>
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-clase">Selectores de clase</a> </li>
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-id">Selectores de ID</a> </li>
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-descendientes">Selectores de descendientes</a> </li>
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-anidar">anidar selectores</a> </li>
+        <li class="main-menu__link main-menu__link--selectores"><a class="main-menu__item main-menu__item--selectores" href="#s-hijo">selector de hijo directo</a> </li>
+    </ul>
+
+    <h3 id="s-etiqueta">Selectores de etiqueta</h3>
+    <p>Los estilos aplicados a las etiquetas se les conoce como estilos base.</p>
+    <pre>
+        <code>
+body {
+    background: grey;
+}
+        </code>
+    </pre>
+
+    <h3 id="s-clase">Selectores de clase</h3>
+    <p>Las clases son atributos de HTML que se indican con <em>class=""</em>, estas se pueden manipular con CSS o JS.</p>
+    <p>Para utilizar una clase con CSS se utiliza un punto seguido del nombre de la clase.</p>
+    <pre>
+        <code>
+HTML:
+&ltp class="alerta"> Ha sucedido un error &lt/p&gt
+
+CSS:
+.alerta {
+    background: red;
+    color: white;
+}
+        </code>
+    </pre>
+    <h3 id="s-id">Selectores de ID</h3>
+    <p>Se selecciona un id con el simbolo <em>#</em>, seguido del nombre del id, sim embargo puesto que los Id son unicos no es reomendable usar Id en el CSS</p>
+<pre>
+    <code>
+HTML
+&lth2 id="titulo"> Curso desde cero &lt/h2&gt
+
+CSS
+#titulo {
+    color: yellow;
+}
+    </code>
+</pre>
+
+<p>NOTA:
+    1 los Ids se usan para crear marcadores en el HTML o manipular el DOM on Js. Pero no se recomiendan para CSS.
+    2 Las clases se pueden usar con CSS o JS. Es buena practica nombrar con el prefijo js- a las clases de JS.</p>
+    <pre>
+        <code>
+&ltul class="menu" id="js-menu">&lt/ul&gt
+        </code>
+    </pre>
+<p>3. Las clases y los Ids puede unificarse en un selector. Esto significa que podrias seleccionar a elementos que tengas dos clases, o una clase y un ID, o una etiqueta y una clase, etc. </p>
+<pre>
+    <code>
+.menu#header {
+    background: green;
+}
+    </code>
+</pre>
+    <h3 id="s-descendientes">Selectores descendientes</h3>
+    <p>Se le aplica a un elemento siempre que sea hijo de otro.</p>
+<pre>
+    <code>
+.padre .hijo {
+    color: #fff;
+}
+    </code>
+</pre>
+    <p>* No importa el nivel del hijo</p>
+    <p>* Siempre se debe intentar descender lo menos posible</p>
+<pre>
+    <code>
+HTML:
+&ltul&gt
+    &ltli&gt
+        &lta&gtItem 1&lt/a&gt
+        &lta&gtItem 2&lt/a&gt
+    &lt/li&gt
+&lt/ul&gt
+
+CSS:
+ul a {
+    color: white;
+}
+    </code>
+</pre>
+
+    <h3 id="s-anidar">Anidar selectores</h3>
+    <p>Consiste en sepasar 2-selectores por comas, de esta manera los atributos se aplican a todos los selectores.</p>
+<pre>
+    <code>
+h1, p, a {
+    font-size: 20px;
+}
+    </code>
+</pre>
+
+    <h3 id="s-hijo">Selectores de hijo directo</h3>
+    <p>Selecciona a los elementos que estan dentro directamento de otro elemento.</p>
+
+<pre>
+    <code>
+padre > hijo {
+    color: lightblue;
+}
+    </code>
+</pre>
+
+    <h2 id="herencia">4. Herencia</h2>
+    <p>Significa que elementos ancestros heredan algunas propiedades a sus descendientes. Generalmente estilos como fuentes,colores, etc. Mientras los estilos de layaout por lo general no se heredan</p>
+<pre>
+    <code>
+HTML
+&ltp>Soy un &ltspan>parráfo&lt/span&gt&lt/p&gt
+
+CSS
+p {
+    color: red;
+}
+    </code>
+</pre>
+    <h2 id="cascada">5.Cascada</h2>
+    <p>La cascada viene del nombre de CSS (cascade style sheet) y significa que los estilos que vienen en ultimo lugar sobrescriben a los que estan antes.</p>
+<pre>
+    <code>
+p {
+    color: red;
+    color: green;
+}
+    </code>
+</pre>
+<p>Se usa mucho la cascada para crear fallbacks para navegadores viejos.</p>
+<pre>
+    <code>
+p {
+    background: red;
+    background: linear-gradient(red,yellow);
+}
+    </code>
+</pre>
+    <p>Ten en cuenta que la cascada también se aplica cuando se inserta CSS con <em>&ltlink&gt</em> o @import.</p>
+    <p>También se usa la cascada para simplificar los estilos.</p>
+    <pre>
+    <code>
+.prev,
+.next {
+    background: red;
+    color: white;
+    float: right;
+}
+.prev {
+    float: left;
+}
+    </code>
+</pre>
+
+    <h2 id="navegador">6. Estilos de navegador</h2>
+    <p>Todos los naveadores tienen sus estilos internos por defecto.</p>
+    <p>Es buena idea reescribir esos estilos.</p>
+<pre>
+    <code>
+h1 {
+    font-size: 1em;
+}
+
+ul {
+    padding-left: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+    </code>
+</pre>
+    <p>Podrias sobreescribir a mano los estilos. Pero existen librerias que ayudan mucho. Antiguamente se usaba reset css pero ya no es util.</p>
+    <p>La mejor opción es normalize</p>
+<!--
+    <h2>4 conceptos</h2>
+    <ul>
+        <li>SELECTORES</li>
+        <li>HERENCIA</li>
+        <li>CASCADA</li>
+        <li>ESPECIFICIDAD</li>
+    </ul>
+
+    <p class="alerta">Ha sucedido un <a href="#">error</a></p>
+    <h2 id="titulo">CSS3 Curso desde cero</h2>
+    <p class="menu header">Yo soy el menu</p>
+    <ul>
+        <li><a class="menu__link level-1" href="#">Item</a></li>
+        <li>
+            <ul>
+                <li><a class="menu__link level-2" href="#">Item</a></li>
+                <li><a class="menu__link level-2" href="#">Item</a></li>
+                <li><a class="menu__link level-2" href="#">Item</a></li>
+                <li><a class="menu__link level-2" href="#">Item</a></li>
+            </ul>
+        </li>
+        <li><a class="menu__link level-1" href="#">Item</a></li>
+        <li><a class="menu__link level-1" href="#">Item</a></li>
+    </ul>
+-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
